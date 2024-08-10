@@ -1,9 +1,10 @@
-This is a web application that allows users to upload images, apply various processing operations, and download the processed output. The frontend is built with Next.js, and the backend is powered by FastAPI.
+This web application allows users to upload images, apply various processing operations, and download the processed output. The frontend is built with Next.js, and the backend is powered by FastAPI.
 
 ## Flowchart
 
-<img alt="Flowchart" src="./client/public/Flowchart.png" width=87%>
-
+<div align=center>
+   <img alt="Flowchart" src="./client/public/Flowchart.png" width=87%>
+</div>
 
 ## Prerequisites
 
@@ -62,8 +63,9 @@ This is a web application that allows users to upload images, apply various proc
    This command starts the worker for handling background tasks.
 
 ## Output 
-
-<img alt="UI" src="./client/public/UI_Img_Processing.png" width=87%>
+<div align=center>
+   <img alt="UI" src="./client/public/UI_Img_Processing.png" width=87%>
+</div>
 
 ## How It Works
 
