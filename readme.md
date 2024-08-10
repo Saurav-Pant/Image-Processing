@@ -43,13 +43,19 @@ This is a web application that allows users to upload images, apply various proc
    ```bash
    pip install -r requirements.txt
    ```
-3. Start the FastAPI server:
+3. Copy the `.env.example` file to `.env` and fill in the required environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+   Then edit the `.env` file with your specific configuration.
+
+4. Start the FastAPI server:
    ```bash
    python3 main.py
    ```
    The FastAPI server should be available at `http://localhost:8000`.
 
-4. Start the background worker:
+5. Start the background worker:
    ```bash
    python3 worker.py
    ```

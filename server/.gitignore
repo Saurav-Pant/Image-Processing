@@ -119,5 +119,7 @@ Thumbs.db
 
 # Local .env file
 .env
+.env.*
+!.env.example
 
 
