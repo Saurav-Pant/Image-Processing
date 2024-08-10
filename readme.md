@@ -2,7 +2,7 @@ This is a web application that allows users to upload images, apply various proc
 
 ## Flowchart
 
-<img alt="GSSoC" src="./client/public/Flowchart.png" width=87%>
+<img alt="Flowchart" src="./client/public/Flowchart.png" width=87%>
 
 
 ## Prerequisites
@@ -60,6 +60,10 @@ This is a web application that allows users to upload images, apply various proc
    python3 worker.py
    ```
    This command starts the worker for handling background tasks.
+
+## Output 
+
+<img alt="UI" src="./client/public/UI_Img_Processing.png" width=87%>
 
 ## How It Works
 
