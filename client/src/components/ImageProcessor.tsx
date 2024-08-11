@@ -21,6 +21,7 @@ import { cn, formatBytes } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import FileCard from "./FileCard";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 type OperationType = "resize" | "filter" | "brightness";
 
@@ -208,10 +209,12 @@ const ImageProcessor: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex min-h-screen bg-gradient-to-r from-indigo-50 to-purple-50"
+      className="flex min-h-screen"
     >
       <div className="w-1/3 p-6 bg-white shadow-lg rounded-r-2xl">
-        <h2 className="text-3xl font-bold mb-6 text-indigo-700 border-b pb-2">Image Processing</h2>
+      <Link href={"/"}>
+        <h2 className="text-3xl font-bold mb-6 text-orange-300 border-b pb-2">Image Processing</h2>
+        </Link>
         <div className="space-y-6">
           <Dropzone
             onDrop={onDrop}
@@ -223,21 +226,21 @@ const ImageProcessor: React.FC = () => {
               <div
                 {...getRootProps()}
                 className={cn(
-                  "group relative grid h-52 w-full cursor-pointer place-items-center rounded-lg border-2 border-dashed border-indigo-300 px-5 py-2.5 text-center transition hover:bg-indigo-50",
-                  "ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2",
-                  isDragActive && "border-indigo-500 bg-indigo-100"
+                  "group relative grid h-52 w-full cursor-pointer place-items-center rounded-lg border-2 border-dashed text-orange-400 px-5 py-2.5 text-center transition hover:bg-orange-50",
+                  "ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2",
+                  isDragActive && "border-orange-500 bg-orange-100"
                 )}
               >
                 <input {...getInputProps()} />
                 <div className="flex flex-col items-center justify-center gap-4 sm:px-5">
-                  <div className="rounded-full border border-dashed border-indigo-400 p-3 bg-indigo-50">
-                    <UploadIcon className="size-7 text-indigo-500" aria-hidden="true" />
+                  <div className="rounded-full border border-dashed border-orange-400 p-3 bg-orange-50">
+                    <UploadIcon className="size-7 text-orange-500" aria-hidden="true" />
                   </div>
                   <div className="flex flex-col gap-px">
-                    <p className="font-medium text-indigo-700">
+                    <p className="font-medium text-orange-700">
                       Drag 'n' drop files here, or click to select files
                     </p>
-                    <p className="text-sm text-indigo-500">
+                    <p className="text-sm text-orange-500">
                       You can upload up to {maxFileCount} file (max {formatBytes(maxSize)})
                     </p>
                   </div>
@@ -259,8 +262,8 @@ const ImageProcessor: React.FC = () => {
             </ScrollArea>
           )}
           <div className="space-y-4">
-            <div className="bg-white p-4 rounded-lg shadow-md border border-indigo-100">
-              <Label className="flex items-center space-x-2 text-indigo-700 font-semibold">
+            <div className="bg-white p-4 rounded-lg shadow-md border border-orange-100">
+              <Label className="flex items-center space-x-2 text-orange-700 font-semibold">
                 <Checkbox
                   checked={operations.some(op => op.type === "resize")}
                   onCheckedChange={(checked) =>
@@ -286,7 +289,7 @@ const ImageProcessor: React.FC = () => {
                         size: [parseInt(e.target.value), operations.find(op => op.type === "resize")?.size?.[1] || 100],
                       })
                     }
-                    className="border-indigo-200 focus:border-indigo-500"
+                    className="border-orange-200 focus:border-orange-500"
                   />
                   <Input
                     type="number"
@@ -297,14 +300,14 @@ const ImageProcessor: React.FC = () => {
                         size: [operations.find(op => op.type === "resize")?.size?.[0] || 100, parseInt(e.target.value)],
                       })
                     }
-                    className="border-indigo-200 focus:border-indigo-500"
+                    className="border-orange-200 focus:border-orange-500"
                   />
                 </motion.div>
               )}
             </div>
 
-            <div className="bg-white p-4 rounded-lg shadow-md border border-indigo-100">
-              <Label className="flex items-center space-x-2 text-indigo-700 font-semibold">
+            <div className="bg-white p-4 rounded-lg shadow-md border border-orange-100">
+              <Label className="flex items-center space-x-2 text-orange-700 font-semibold">
                 <Checkbox
                   checked={operations.some(op => op.type === "filter")}
                   onCheckedChange={(checked) =>
@@ -326,7 +329,7 @@ const ImageProcessor: React.FC = () => {
                       handleOperationChange("filter", { filter_type: value })
                     }
                   >
-                    <SelectTrigger className="w-full border-indigo-200 focus:border-indigo-500">
+                    <SelectTrigger className="w-full border-orange-200 focus:border-orange-500">
                       <SelectValue placeholder="Select filter" />
                     </SelectTrigger>
                     <SelectContent>
@@ -339,8 +342,8 @@ const ImageProcessor: React.FC = () => {
               )}
             </div>
 
-            <div className="bg-white p-4 rounded-lg shadow-md border border-indigo-100">
-              <Label className="flex items-center space-x-2 text-indigo-700 font-semibold">
+            <div className="bg-white p-4 rounded-lg shadow-md border border-orange-100">
+              <Label className="flex items-center space-x-2 text-orange-700 font-semibold">
                 <Checkbox
                   checked={operations.some(op => op.type === "brightness")}
                   onCheckedChange={(checked) =>
@@ -366,14 +369,14 @@ const ImageProcessor: React.FC = () => {
                         factor: parseFloat(e.target.value),
                       })
                     }
-                    className="border-indigo-200 focus:border-indigo-500"
+                    className="border-orange-200 focus:border-orange-500"
                   />
                 </motion.div>
               )}
             </div>
           </div>
           <Button
-            className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
+            className="w-full mt-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
             onClick={handleSubmit}
             disabled={isLoading}
           >
@@ -384,7 +387,7 @@ const ImageProcessor: React.FC = () => {
       {selectedImage && (
         <div className="w-2/3 p-6 flex flex-col items-center justify-center">
           <div className="w-full max-w-[400px] my-8">
-            <h2 className="text-2xl font-bold mb-4 text-indigo-700">Original Image</h2>
+            <h2 className="text-2xl font-bold mb-4 text-orange-700">Original Image</h2>
             <div className="relative aspect-square overflow-hidden rounded-md">
               <Image
                 src={selectedImage}
